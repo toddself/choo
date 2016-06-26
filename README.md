@@ -797,6 +797,18 @@ Consider running some of the following:
 - [envify](https://github.com/hughsk/envify) - replace `process.env` values
   with plain strings
 
+### Choo + Internet Explorer & Safari
+Out of the box `choo` only supports runtimes which support:
+* `const`
+* `fat-arrow` functions (e.g. `() => {}`)
+* `template-strings`
+
+This does not include Safari 9 or any version of IE. If support for these
+platforms is required you will have to provide some sort of transform that
+makes this functionalty available in older browsers.  The test suite uses
+[es2020](https://github.com/yoshuawuyts/es2020) as a global transform, but
+anything else which might satisfy this requirement is fair game.
+
 Generally for production builds you'll want to run:
 ```sh
 $ NODE_ENV=production browserify \
