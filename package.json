@@ -7,9 +7,9 @@
     "deps": "dependency-check . && dependency-check . --extra --no-dev -i xhr",
     "test:server": "standard && npm run deps && NODE_ENV=test node tests/server/*",
     "test:server:cov": "standard && npm run deps && NODE_ENV=test istanbul cover tests/server/*",
-    "test:browser": "standard && npm run deps && NODE_ENV=test karma start",
-    "test:browser:cov": "standard && npm run deps && NODE_ENV=test COVERAGE=true karma start",
-    "test:cov": "npm run test:server:cov && npm run test:browser:cov",
+    "test:browser": "standard && npm run deps && NODE_ENV=test zuul tests/browser/*",
+    "test:browser:local": "standard && npm run deps && NODE_ENV=test zuul --local 8080 -- tests/browser/*",
+    "test:cov": "npm run test:server:cov && npm run test:browser",
     "test": "npm run test:server && npm run test:browser"
   },
   "repository": "yoshuawuyts/choo",
